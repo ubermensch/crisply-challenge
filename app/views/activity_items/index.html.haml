@@ -1,0 +1,10 @@
+.centered
+  %table
+    %thead
+      %tr
+        %td
+          Activity Item
+        %td
+          When
+    %tbody
+      = render :partial => 'proxied_requests/show', :collection => @proxied_requests
