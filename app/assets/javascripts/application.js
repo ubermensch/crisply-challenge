@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+
+  // Invoke the friendly datetime rendering functionality of the Timeago plugin.
+  $('abbr.timeago').timeago();
+});

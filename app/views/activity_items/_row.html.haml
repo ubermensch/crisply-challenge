@@ -1,0 +1,8 @@
+%tr
+  %td
+    = activity_item.text
+  %td
+    %abbr.timeago{:title => activity_item.created_at.iso8601}
+      = activity_item.created_at.to_formatted_s(:long)
+  %td
+    = activity_item.sent_to_crisply

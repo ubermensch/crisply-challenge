@@ -1,10 +1,17 @@
 .centered
-  %table
-    %thead
-      %tr
-        %td
-          Activity Item
-        %td
-          When
-    %tbody
-      = render :partial => 'proxied_requests/show', :collection => @proxied_requests
+  - if @activity_items.empty?
+    %p.no-items
+      No activity items yet. Push to the crisply-challenge GitHub repo to see some cool stuff!
+  - else
+    %table.table-striped.table.table-bordered
+      %thead
+        %tr
+          %td
+            Activity Item
+          %td
+            When
+          %td
+            Sent to Crisply
+      %tbody
+        = render :partial => "activity_items/row", :collection => @activity_items, :as => :activity_item
+
