@@ -5,7 +5,6 @@ class ActivityItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     # parse the payload coming from github and build a new
     # activity item from it before sending it off to Crisply.
     @a_i = ActivityItem.from_github(params[:payload])
