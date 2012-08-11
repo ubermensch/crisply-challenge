@@ -11,7 +11,7 @@ class ActivityItem < ActiveRecord::Base
   # github webhook JSON payload
   def self.from_github(payload)
     text = "Push made to #{payload['repository']['name']} GitHub repo"
-    if payload['commits'].present? and payload['commits'].size > 0 and payload[':commits'][0]['message'].present?
+    if payload['commits'].present? and payload['commits'].size > 0 and payload['commits'][0]['message'].present?
       text += " - commit message: '#{payload['commits'][0]['message']}'"
     end
 
