@@ -9,7 +9,8 @@ class ActivityItem < ActiveRecord::Base
 
   # Creates and saves a new ProxiedRequest object from the given
   # github webhook JSON payload
-  def self.from_github(payload)
+  def self.from_github(json_payload)
+    payload = JSON.parse(json_payload)
     text = "Push made to #{payload['repository']['name']} GitHub repo"
     if payload['commits'].present? and payload['commits'].size > 0 and payload['commits'][0]['message'].present?
       text += " - commit message: '#{payload['commits'][0]['message']}'"
